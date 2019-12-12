@@ -1,17 +1,39 @@
+var sz = 30;
+var xmovement = sz;
+var ymovement = 9 * sz;
+var appleY = 9; 
+var appleX = 13;
+var state = 0;
+var canvasSize = 600;
+var tail1D = [];
+var parts = 0;
+var tail2D = [];
+
+
+
 function setup() {
-	createCanvas(600, 600);
-
-	xpos = 0;
-
-	frameRate(10);
+	createCanvas(canvasSize, canvasSize);
+	frameRate(8);
 }
 
 function draw() {
 
+	background(200, 150,255 );
 
-	background(255,20,255);
+	grid();
 	
-	rect(xpos,50,10,10);
+	fill(255,0,0);
+	rect(appleX * sz, appleY * sz, sz, sz);
 
-	xpos = xpos + 5;
+	fill(0,255 ,50 );
+	rect(xmovement, ymovement, sz, sz);
+
+	checkIfOnApple();
+
+	tailUpdate();
+	
+	move();
+
+	
+
 }
