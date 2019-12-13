@@ -1,18 +1,27 @@
-var sz = 30;
+var sz = 32;
 var xmovement = 0
 var ymovement = 0;
 var appleY = 2; 
 var appleX = 2;
 var state = 0;
-var canvasSize = 600;
-var parts = 1;
+var canvasSize = 512;
+var parts = 0;
 var tailArray = [];
 var arrayPart = [];
 var finised = false;
+var discoR = 150;
+var discoG = 75;
+var discoB = 0;
+var haha = true;
+
+
+
+
+
 
 function setup() {
 	createCanvas(canvasSize, canvasSize);
-	frameRate(10);
+	frameRate(5);
 }
 
 function draw() {
@@ -20,8 +29,8 @@ function draw() {
 	grid();
 	fill(255,0,0);
 	rect(appleX * sz, appleY * sz, sz, sz);
-	fill(0,255 ,50 );
-	rect(xmovement, ymovement, sz, sz);
+	
+	
 
 	checkIfOnApple();
 
@@ -33,10 +42,18 @@ function draw() {
 
 	tailDraw();
 
-	if(isSnakeOutOfField() || snakeOnItsTail()){
-		print('dead');
+	if(isSnakeOutOfField()){
 		finised = true; 
 	}
+
+	if(finised === true){
+		parts = 0;
+		finised = false;
+	}
+
+	fill(	3, 125, 80);
+	rect(xmovement, ymovement, sz, sz);
+
 
 
 }

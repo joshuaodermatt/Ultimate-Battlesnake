@@ -10,6 +10,12 @@ function makeTail(){
 
             tailArray[i] = tailArray[i -1];
 
+            if(i > 2){
+                if (tailArray[i][0] === tailArray[0][0] && tailArray[i][1] === tailArray[0][1]){
+                    finised = true;
+                }
+            }
+
         }
     }
 }
@@ -17,9 +23,13 @@ function makeTail(){
 function tailDraw(){
     
     for(var i = 1; i <= parts; ++i){
-        fill(0,0 ,70 );
+        fill(	3, 125, 80);
         rect(tailArray[i][0], tailArray[i][1], sz, sz);
     }
     
 }
+
+
+
+
 
