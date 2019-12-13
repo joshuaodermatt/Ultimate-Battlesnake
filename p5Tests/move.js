@@ -1,5 +1,5 @@
 function move(){
-
+	
 	if(keyCode === LEFT_ARROW){
 		if(state === 2){
 			xmovement = xmovement + sz;
