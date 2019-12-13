@@ -1,5 +1,5 @@
 function isSnakeOutOfField(){
-    if(xmovement < 0 || xmovement > canvasSize|| ymovement < 0 || ymovement > canvasSize){
+    if(xmovement === 0 || xmovement === canvasSize -sz || ymovement === 0 || xmovement === canvasSize -sz){
         return true;
     }else{
         return false;
