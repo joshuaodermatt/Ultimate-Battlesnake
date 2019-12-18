@@ -1,3 +1,4 @@
+
 function move(){
 	
 	if(keyCode === LEFT_ARROW){

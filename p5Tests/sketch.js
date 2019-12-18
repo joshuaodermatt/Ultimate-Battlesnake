@@ -8,18 +8,14 @@ var canvasSize = 512;
 var parts = 0;
 var tailArray = [];
 var arrayPart = [];
-var finised = false;
-var discoR = 150;
-var discoG = 75;
-var discoB = 0;
-var haha = true;
-
+var finised = false;                                                                                                                                
+var keyCodeToMove;
 
 
 
 function setup() {
 	createCanvas(canvasSize, canvasSize);
-	frameRate(60);
+	frameRate(7);
 }
 
 function draw() {
