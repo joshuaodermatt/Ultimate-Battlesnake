@@ -17,11 +17,9 @@ var haha = true;
 
 
 
-
-
 function setup() {
 	createCanvas(canvasSize, canvasSize);
-	frameRate(5);
+	frameRate(60);
 }
 
 function draw() {
@@ -46,14 +44,12 @@ function draw() {
 		finised = true; 
 	}
 
-	if(finised === true){
-		parts = 0;
-		finised = false;
-	}
 
-	fill(	3, 125, 80);
+
+	fill(3, 125, 80);
 	rect(xmovement, ymovement, sz, sz);
 
+	print(ymovement);
 
 
 }

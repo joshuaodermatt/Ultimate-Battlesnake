@@ -11,7 +11,7 @@ function generateAppleLocation(){
 		appleX = floor(random(canvasSize/sz));
 		appleY = floor(random(canvasSize/sz));
 
-		if(!appleOnSnake()){
+		if(appleOnSnake() === false){
 			break;
 		}
 
@@ -27,7 +27,10 @@ function appleOnSnake(){
 		if(tailArray[i][0] === appleX && tailArray[i][1] === appleY){
 			return true;
 		}else{
-            return false
+			if(i === tailArray.length -1){
+			 	return false	
+			}
+           
         }
 	}
 
