@@ -9,13 +9,7 @@
     </style>
   </head>
   <body>
-    <header>
-      <img src="../recources/logo.png" alt="snake logo">
-    </header>
+    <p>heheheh</p>
+    <button class="learn-more">Learn More</button>
   </body>
 </html>
-
-
-//  ADD CONSTRAINT FOREIGN KEY fk_user (player_id) 
-  //  REFERENCES user (id)
-    
