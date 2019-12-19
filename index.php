@@ -16,12 +16,10 @@
         <p><a href="#" class="nav-items">GLOBAL RANKING</a></p>
         <p><a href="#" class="nav-items">GLOBAL STATS</a></p>
       </div>
-      <div id="header-space">
-      </div>
-      <div class="login-elements">
-        <p>username<p>
-        <p>logout</p>
-        <p>login</p>
+      <div class="login-elements-container">
+        <p class="login-elements"><a href="index.php" class="nav-items">username</a><p>
+        <p class="login-elements"><a href="/p5Tests/index.html" class="nav-items">logout</a></p>
+        <p class="login-elements"><a href="login.php" class="nav-items">login</a></p>
       </div>
     </header>
   </body>

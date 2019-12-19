@@ -1,4 +1,5 @@
 #logo{
+    margin-right: 15px;
     width: 40px;
     height: 40px;
 }
@@ -19,7 +20,7 @@ body{
 }
 
 #nav{
-    min-width: 30%;
+    min-width: 35%;
     width: 30%;
     display: flex;
     flex-direction: row;
@@ -37,14 +38,19 @@ body{
     margin-left: 10px;
 }
 
+.login-elements-container{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+
 .login-elements{
-    width: 90%;
-    display: grid;
-    grid-template-columns: 20% 20% 20% 20% 20%;
+    margin-left: 5px;
+    margin-right: 20px;
 }
 
 #header-space{
-    width: 5%;
+    width: 50%;
 }
 
 //  ADD CONSTRAINT FOREIGN KEY fk_user (player_id) 
