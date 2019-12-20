@@ -8,18 +8,45 @@
     <link rel="stylesheet" href="../css/login.css">
   </head>
   <body>
-    <div class="login-container">
-        <h1 id="h1">login</h1>
-        <form action="#" method="POST">
-            <input class="input" type="text" name="EmailOrUsname" placeholder="E-mail/Username" id="mail">
-            <input class="input" type="text" name="pwd" placeholder="Password">
-            <div id="buttons">
-            <a href="index.php">register</a>
-             <button class="button"><p>login</p></button>
-             
-            </div>
-            </form>
-        
+    <div id="logo-container">
+     <a href="index.php"><img src="../recources/logo.png" alt="snake logo" id="logo"></a>
     </div>
+    <div class="login-container">
+        
+        <h1 id="h1">login</h1>
+        <form action="login.php" method="POST">
+          <input class="input" type="text" name="emailOrUsername" placeholder="E-mail/Username" >
+          <input class="input" type="password" name="pwd" placeholder="Password">
+          <div id="buttons">
+            <a href="register.php">register</a>
+            <button class="button"><p>login</p></button>
+          </div>
+        </form>
+        </div>
+        <?php
+        $EOU;
+        $pwd;
+        if($_SERVER['REQUEST_METHOD'] === 'POST'){
+            $EOU = $_POST["emailOrUsername"];
+            $pwd = $_POST["pwd"];
+
+            require "php/login_server.php"; 
+        }
+        ?>
   </body>
 </html>
+
+ <?php
+ function checkInput($email, $pwd){
+   $errors = [];
+   if(strpos($email, '@') === false || strlen($email) > 40){
+     $errors = 'Bitte geben Sie eine korrekte Email ein.';
+   }
+   if(strlen($pwd) > 40){
+     $errors = 'Das Passwort darf maximal 40 Zeichn beinhalten.';
+   }
+   
+   return $errors;
+
+ }
+ ?>

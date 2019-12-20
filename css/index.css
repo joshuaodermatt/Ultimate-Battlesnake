@@ -20,7 +20,7 @@ body{
 }
 
 #nav{
-    min-width: 35%;
+    min-width: 15%;
     width: 30%;
     display: flex;
     flex-direction: row;
@@ -51,6 +51,10 @@ body{
 
 #header-space{
     width: 50%;
+}
+
+#profile{
+    color: #f16161;
 }
 
 //  ADD CONSTRAINT FOREIGN KEY fk_user (player_id) 

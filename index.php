@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <html lang="de">
   <head>
     <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
@@ -13,13 +16,22 @@
       </div>
       <div id="nav">
         <p><a href="#" class="nav-items">HOME</a></p>
-        <p><a href="#" class="nav-items">GLOBAL RANKING</a></p>
         <p><a href="#" class="nav-items">GLOBAL STATS</a></p>
       </div>
       <div class="login-elements-container">
-        <p class="login-elements"><a href="index.php" class="nav-items">username</a><p>
-        <p class="login-elements"><a href="/p5Tests/index.html" class="nav-items">logout</a></p>
+        <?php
+       
+        if(isset($_SESSION['UsName'])){
+        ?>
+        <p class="login-elements"><a href="index.php" class="nav-items" id="profile"><?=$_SESSION['UsName']?></a><p>
+        <p class="login-elements"><a href="php/logout.php" class="nav-items">logout</a></p>
+        <?php
+        }else{
+        ?>
         <p class="login-elements"><a href="login.php" class="nav-items">login</a></p>
+        <?php
+        }
+        ?>
       </div>
     </header>
   </body>

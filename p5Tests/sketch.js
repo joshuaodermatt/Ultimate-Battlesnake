@@ -19,12 +19,18 @@ function setup() {
 }
 
 function draw() {
-	background(200, 150,255 );
+	background(107, 168, 169);
 	grid();
 	fill(255,0,0);
 	rect(appleX * sz, appleY * sz, sz, sz);
+
+	isSnakeOnTail();
 	
 	
+	if(xmovement <= 0 - sz || xmovement >= canvasSize || ymovement <= 0 -sz ||ymovement >= canvasSize ){
+		finised = true;
+	}
+	if(finised === false){
 
 	checkIfOnApple();
 
@@ -34,18 +40,28 @@ function draw() {
 
 	move();
 
-	tailDraw();
-
-	if(isSnakeOutOfField()){
-		finised = true; 
 	}
 
+	if(finised === true){
+		
+	}
 
+	
+	
+	tailDraw();
 
-	fill(3, 125, 80);
+	fill(29, 77, 79);
 	rect(xmovement, ymovement, sz, sz);
 
-	print(ymovement);
+}
 
-
+function isSnakeOnTail(){
+    for(var i = 2; i < parts; ++i ){
+        if(parts > 1){
+            if(xmovement === tailArray[i][0] && ymovement === tailArray[i][1]){
+            finished = true;
+            }
+        }
+        
+    }
 }

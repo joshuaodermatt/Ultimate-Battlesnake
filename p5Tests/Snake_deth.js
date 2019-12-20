@@ -1,10 +1,10 @@
-function isSnakeOutOfField(){
-    if(xmovement === 0 - sz ||
-        xmovement === canvasSize ||
-        ymovement === 0 -sz ||
-        ymovement >= canvasSize + sz ){
-        return true;
-    }else{
-        return false;
+function isSnakeOnTail(){
+    for(var i = 2; i < parts; ++i ){
+        if(parts > 1){
+            if(xmovement === tailArray[i][0] && ymovement === tailArray[i][1]){
+            finished = true;
+            }
+        }
+        
     }
 }

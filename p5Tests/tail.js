@@ -23,7 +23,7 @@ function makeTail(){
 function tailDraw(){
     
     for(var i = 1; i <= parts; ++i){
-        fill(	3, 125, 80);
+        fill(53, 115, 118);
         rect(tailArray[i][0], tailArray[i][1], sz, sz);
     }
     
