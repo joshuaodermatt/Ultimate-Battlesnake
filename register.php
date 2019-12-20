@@ -29,7 +29,6 @@
             $email = $_POST["email"];
             $username = $_POST["username"];
             $pwd = $_POST["pwd"];
-            
             require "php/register_server.php"; 
         }
         
@@ -37,3 +36,28 @@
     </div>
   </body>
 </html>
+
+
+
+
+<?php
+function check ($email, $username, $pwd){
+    
+  if($eail === '' || strpos($email, '@') === false){
+    $errors[] = 'Bitte geben Sie eine gültige E-mail an';
+  }
+  if($username === '' || $username > 40 ){
+    $errors[] = 'Bitte geben Sie einen Usernamen ein';
+  }
+
+  if($pwd === ''){
+    $errors[] = 'Bitte geben Sie ein Passwort ein';
+  }
+  
+  if(count($errors) === 0){
+    $errors[] = '';
+    $return = $errors;
+  }                       
+  return $errors;
+}
+?>

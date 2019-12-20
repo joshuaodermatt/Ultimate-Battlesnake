@@ -27,17 +27,21 @@ foreach($stmt->fetchAll() as $x) {
         $_SESSION['UsName'] = $x['username'];
         $_SESSION['email'] = $x['email'];
         $_SESSION['pwd'] = $x['pwd'];
+        $_SESSION['id'] = $x['pwd']; 
         
         header('Location: index.php');
 
-    }else{
-        ?>
-        <div>
-            <p id='error'>Login felhlgeschlagen</p>
-        </div>
-        <?php
+
     }
 }
 
+    if(!isset($_SESSION['UsName'])){
+    ?>
+    <div>
+        <p id='error'>Login felhlgeschlagen!</p>
+    </div>
+    <?php 
+    }
+    
 
 ?>

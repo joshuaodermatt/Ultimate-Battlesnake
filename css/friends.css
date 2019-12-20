@@ -1,0 +1,130 @@
+#logo{
+    margin-right: 15px;
+    width: 40px;
+    height: 40px;
+}
+html{
+    font-family: 'Roboto', sans-serif;
+    background-color: #F5F5F5;
+}
+.header{
+    display: flex;
+    flex-direction: row;
+    height: 50px;
+    width: 100%;
+    background-color: white;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+body{
+    margin: 0;
+}
+
+#nav{
+    min-width: 15%;
+    width: 30%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+
+}
+.nav-items{
+    color: black;
+    text-decoration: none;
+}
+
+#logo-container{
+    margin-top: 5px;
+    margin-left: 10px;
+}
+
+.login-elements-container{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.login-elements{
+    margin-left: 5px;
+    margin-right: 20px;
+}
+
+#header-space{
+    width: 50%;
+}
+
+#profile{
+    color: #f16161;
+}
+
+#searchfield-container{
+    height: 35px;
+
+    margin-top: 50px;
+    margin-bottom: 0px;
+    width: 100%;
+}
+
+#searchfield{
+    min-width: 90%;
+    font-size: 25px;
+}
+
+#content{
+    margin-left: auto;
+    margin-right: auto;
+    width: 60%;
+}
+
+#searchButton{
+    color: white;
+    padding-top: 2px;
+    padding-bottom:2px ;
+    width: 9%;
+    font-size: 25px;
+    border: solid gray 1px;
+    background-color: #f16161;
+   
+}
+
+#search_form{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    height: 35px;
+    width: 100%;
+    margin-bottom: 0px;
+}
+
+.friends{
+    height: 35px;
+    margin-top: 35px;
+    justify-content: space-between;
+    display: flex;
+    flex-direction: row;
+    font-size: 25px;
+    border: #363333 2px solid;
+    background-color: #363333;
+    color: white; 
+    border-radius: 5px;
+}
+
+
+
+.friends-data{
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 4px;
+    font-size: 20px;
+}
+
+.buttons{
+    margin-top: 4px;
+    font-size: 20px;
+    border: none;
+    background-color: transparent;
+    color: white;
+}
+
+//  ADD CONSTRAINT FOREIGN KEY fk_user (player_id) 
+  //  REFERENCES user (id)

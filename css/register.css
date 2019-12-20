@@ -92,6 +92,21 @@ a{
     width: fit-content;
 }
 
+.error{
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: auto;
+    font-size: 15px;
+    color: white;
+    width: 90%;
+}
+
+html{
+    font-family: 'Roboto', sans-serif;
+    background-color: #F5F5F5;
+ 
+}
+
 
 
 

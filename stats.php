@@ -6,7 +6,7 @@ session_start();
     <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../css/index.css">
+    <link rel="stylesheet" href="../css/stats.css">
     <title>UB</title>
   </head>
   <body>
@@ -15,23 +15,12 @@ session_start();
         <img src="../recources/logo.png" alt="snake logo" id="logo">
       </div>
       <div id="nav">
-        <p><a href="#" class="nav-items">HOME</a></p>
+        <p><a href="index.php" class="nav-items">HOME</a></p>
         <p><a href="#" class="nav-items">GLOBAL STATS</a></p>
       </div>
       <div class="login-elements-container">
-        <?php
-       
-        if(isset($_SESSION['UsName'])){
-        ?>
-        <p class="login-elements"><a href="stats.php" class="nav-items" id="profile"><?=$_SESSION['UsName']?></a><p>
-        <p class="login-elements"><a href="php/logout.php" class="nav-items">logout</a></p>
-        <?php
-        }else{
-        ?>
-        <p class="login-elements"><a href="login.php" class="nav-items">login</a></p>
-        <?php
-        }
-        ?>
+        <p class="login-elements"><a href="stats.php" class="nav-items">stats</a></p>
+        <p class="login-elements"><a href="friends.php" class="nav-items">friends</a>
       </div>
     </header>
   </body>

@@ -22,7 +22,7 @@
             <button class="button"><p>login</p></button>
           </div>
         </form>
-        </div>
+       
         <?php
         $EOU;
         $pwd;
@@ -33,20 +33,6 @@
             require "php/login_server.php"; 
         }
         ?>
+      </div>
   </body>
 </html>
-
- <?php
- function checkInput($email, $pwd){
-   $errors = [];
-   if(strpos($email, '@') === false || strlen($email) > 40){
-     $errors = 'Bitte geben Sie eine korrekte Email ein.';
-   }
-   if(strlen($pwd) > 40){
-     $errors = 'Das Passwort darf maximal 40 Zeichn beinhalten.';
-   }
-   
-   return $errors;
-
- }
- ?>
