@@ -30,71 +30,19 @@ session_start();
           <button id="searchButton">GO!</button>
         </form>
       </div>
+      <?php
 
+      $isInputOnDb = false;
+      if($_SERVER['REQUEST_METHOD'] === 'POST'){
+        require "php/search.php";
+      }
+      ?>
 
-        <?php
-
-        //Server connection
-        if($_SERVER['REQUEST_METHOD'] === 'POST'){
-          $friendId;
-          $userFound = false;
-          $user = 'snake';
-          $password = 's1n2a3k4e5';
-
-          $UsNameFriend = $_POST['search'];
-          
-          $pdo = new PDO('mysql:host=localhost;dbname=snake', $user, $password, [
-            PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
-            PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8',
-          ]);
-
-          //search bar logic
-          $stmt = $pdo->query('SELECT * FROM `user`');
-
-          foreach($stmt->fetchAll() as $x) {
-            if($x['username'] === $UsNameFriend){
-              $userFound = true;
-              $friendId = $x['id'];
-            }
-          }
-
+      <div id="requests">
+        <p class="title">Requests<p>
+        <div class="line"></div>
         
-
-        //search results
-        if($userFound === true){
-          ?>
-          <div class='friends'>
-            <p class="friends-data"><?=$UsNameFriend?></p>
-            <p class="friends-data">Highscore:</p>
-            <form action="friends.php" method="POST">
-              <input type="hidden" name="addFriend" value="<?=$friendId?>">
-              <button class="buttons">+</button>
-            </form>
-          </div>
-          <?php
-
-        }
-
-        //Sending friend request
-        $AddValue = $_POST['addFriend'];
-       
-        $id =$_SESSION['id'];
-        if($id != ''){
-          $insert = $pdo->prepare("INSERT INTO `friend_request` (user, request_person) VALUES (id:,fid:)");
-          $insert->execute([':id' => $id, ':fid' => $friendId]);
-          print('erer');
-        }
-        
-        }
-        
-        
-        
-
-        
-        ?>
-      
+      </div>
     </div>
   </body>
 </html>
-
-

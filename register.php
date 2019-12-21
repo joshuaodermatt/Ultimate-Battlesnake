@@ -43,7 +43,7 @@
 <?php
 function check ($email, $username, $pwd){
     
-  if($eail === '' || strpos($email, '@') === false){
+  if($email === '' || strpos($email, '@') === false){
     $errors[] = 'Bitte geben Sie eine gültige E-mail an';
   }
   if($username === '' || $username > 40 ){
