@@ -11,9 +11,22 @@ $errors_complet = check($email, $username, $pwd);
 
 if($errors_complet [0] === ''){
     $stmt = $pdo->prepare("INSERT INTO `user` (username, email, pwd) VALUES(:username, :email, :pwd) ");
-    $stmt->execute([':username' => htmlspecialchars($username), ':email' => htmlspecialchars($email), ':pwd' => htmlspecialchars($pwd)]); 
+    $stmt->execute([':username' => htmlspecialchars($username), ':email' => htmlspecialchars($email), ':pwd' => htmlspecialchars($pwd)]);
+    $idForSession = '';
+    $stmt = $pdo->query('SELECT * FROM `user`');
+    foreach($stmt->fetchAll() as $row) {
+        if($row['email'] === $email){
+            $idForSession = $row['id'];
+        }
+    }
+    
+    session_start();
+    $_SESSION['UsName'] = $username;
+    $_SESSION['email'] = $email;
+    $_SESSION['pwd'] = $pwd;
+    $_SESSION['id'] = $idForSession;
 
-    header('Location: login.php');
+    header('Location: index.php');
 }else{
     echo"<div id='error_container'>";
     echo"<ul>";

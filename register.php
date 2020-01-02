@@ -22,6 +22,7 @@
         </form>
 
         <?php
+        $emailUsed = false;
         $email;
         $username;
         $pwd;
@@ -29,6 +30,14 @@
             $email = $_POST["email"];
             $username = $_POST["username"];
             $pwd = $_POST["pwd"];
+            require 'dbc.php';
+
+            $stmt = $pdo->query('SELECT * FROM `user`');
+            foreach($stmt->fetchAll() as $row) {
+              if($email === $row['email']){
+                $emailUsed = true;
+              }
+            }
             require "php/register_server.php"; 
         }
         
@@ -43,7 +52,7 @@
 <?php
 function check ($email, $username, $pwd){
     
-  if($email === '' || strpos($email, '@') === false){
+  if($email === '' || strpos($email, '@') === false || strpos($email, '.') === false || $emailUsed === true){
     $errors[] = 'Bitte geben Sie eine gültige E-mail an';
   }
   if($username === '' || $username > 40 ){

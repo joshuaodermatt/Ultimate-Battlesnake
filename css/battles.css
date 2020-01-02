@@ -1,5 +1,5 @@
 #logo{
-    margin-right: 15px;
+    margin-right: 25px;
     width: 40px;
     height: 40px;
 }
@@ -20,15 +20,17 @@ body{
 }
 
 #nav{
-    min-width: 15%;
-    width: 30%;
+    min-width: 5%;
+    
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
 
 }
 .nav-items{
+    margin-left: 15px;
+    margin-right: 15px;
     color: black;
     text-decoration: none;
 }
@@ -49,13 +51,37 @@ body{
     margin-right: 20px;
 }
 
-#header-space{
-    width: 50%;
-}
-
 #profile{
     color: #f16161;
 }
 
-//  ADD CONSTRAINT FOREIGN KEY fk_user (player_id) 
-  //  REFERENCES user (id)
+
+#content{
+    margin-top: 50px;
+    margin-right: auto;
+    margin-left: auto;
+    width: 55%;
+}
+
+#search-form{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#search-input{
+    border: none;
+    border-bottom: 1px solid black;
+    font-size: 20px;
+    width: 89%;
+}
+
+#search-button{
+    color: white;
+    background-color: #f16161;
+    font-size: 20px;
+    border: 1px solid #f16161;
+    width: 10%;
+}
+

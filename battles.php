@@ -6,7 +6,7 @@ session_start();
     <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../css/index.css">
+    <link rel="stylesheet" href="../css/battles.css">
     <title>UB</title>
   </head>
   <body>
@@ -41,6 +41,20 @@ session_start();
         ?>
       </div>
     </header>
+    
+    <div id="content">
+        <form id="search-form">
+            <input type="text" name="search" placeholder="Player search" id="search-input">
+            <button type="submit" id="search-button">GO!</button>
+        </form>
+    </div>
+
+
+
+
+
+
+
   </body>
 </html>
 
