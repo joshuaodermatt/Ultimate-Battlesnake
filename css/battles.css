@@ -71,6 +71,7 @@ body{
 }
 
 #search-input{
+    background-color: #F5F5F5;
     border: none;
     border-bottom: 1px solid black;
     font-size: 20px;
@@ -85,3 +86,50 @@ body{
     width: 10%;
 }
 
+
+.player-container{
+    margin-top: 30px;
+    height: 35px;
+    border: 1px solid black;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    background-color: #4d727e;
+}
+
+.player-items{
+    background-color: transparent;
+    color: white;
+    padding: 0px;
+    padding-top: 4px;
+    margin: 0px;
+    margin-right: 20px;
+    margin-left: 20px;
+    background-color: none;
+    border: none;
+    font-size: 25px;
+    
+}
+
+.line{
+    margin: 0px;
+    border: none;
+    border-bottom: 1px solid black;
+}
+
+.player-containertwo{
+    margin-top: 30px;
+    height: 35px;
+    border: 1px solid black;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    background-color: #0f4c75;
+}
+
+
+.title{
+    margin-top: 100px;
+}

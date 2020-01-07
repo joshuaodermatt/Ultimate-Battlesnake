@@ -43,10 +43,21 @@ session_start();
     </header>
     
     <div id="content">
-        <form id="search-form">
+        <form id="search-form" method="POST" action="battles.php">
             <input type="text" name="search" placeholder="Player search" id="search-input">
             <button type="submit" id="search-button">GO!</button>
         </form>
+        <?php
+        if($_SERVER['REQUEST_METHOD'] === 'POST'){
+            require "php/search.php";
+        }
+        ?>
+        <p class="title">Battles</p>
+        <div class="line"></div>
+        <?php
+          require "php/listBattles.php";
+        ?>
+
     </div>
 
 
