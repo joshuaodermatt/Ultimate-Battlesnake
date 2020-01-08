@@ -1,0 +1,167 @@
+#logo{
+    margin-right: 25px;
+    width: 40px;
+    height: 40px;
+}
+html{
+    font-family: 'Roboto', sans-serif;
+    background-color: #F5F5F5;
+}
+.header{
+    display: flex;
+    flex-direction: row;
+    height: 50px;
+    width: 100%;
+    background-color: white;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+body{
+    margin: 0;
+}
+
+#nav{
+    min-width: 5%;
+    
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: nowrap;
+
+}
+.nav-items{
+    margin-left: 15px;
+    margin-right: 15px;
+    color: black;
+    text-decoration: none;
+}
+
+#logo-container{
+    margin-top: 5px;
+    margin-left: 10px;
+}
+
+.login-elements-container{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.login-elements{
+    margin-left: 5px;
+    margin-right: 20px;
+}
+
+#profile{
+    color: #f16161;
+}
+
+#content{
+    margin-top: 50px;
+    margin-right: auto;
+    margin-left: auto;
+    
+}
+#snd-header{
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.snd-items{
+    color: #f16161;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+#profile{
+    width: 100%;
+    color: black;
+}
+
+#name{
+    font-size: 70px;
+    margin-top: 60px;
+    margin-left: auto;
+    margin-right: auto;
+    width: fit-content;
+}
+
+#stats-container{
+    margin-bottom: 100px;
+    width: 55%;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: row;
+}
+
+.stats-items{
+    
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    color: gray;
+    font-size: 15px;
+}
+
+.stats-items-big{
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 30px;
+}
+
+#graph{
+    margin-left: auto;
+    margin-right: auto;
+    width: fit-content;
+}
+
+#defaultCanvas0{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#graph-infos{
+    width: 40%;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.graph-infos-text{
+    width: fit-content;
+}
+
+#red{
+    width: 20px;
+    height: 20px;
+    background-color: #f16161;
+    margin-top: 16px;
+    margin-bottom: 16px;
+}
+
+#blue{
+    margin-top: 16px;
+    margin-bottom: 16px;
+    width: 20px;
+    height: 20px;
+    background-color: #87cefa;
+}
+
+.graph-infos-text-container{
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: row;
+    width: 20%;
+}
+
+
+

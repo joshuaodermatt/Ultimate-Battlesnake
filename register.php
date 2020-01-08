@@ -22,6 +22,7 @@
         </form>
 
         <?php
+        $usernameUsed = false;
         $emailUsed = false;
         $email;
         $username;
@@ -37,6 +38,9 @@
               if($email === $row['email']){
                 $emailUsed = true;
               }
+              if($username === $row['username']){
+                $usernameUsed = true;
+              }
             }
             require "php/register_server.php"; 
         }
@@ -50,13 +54,13 @@
 
 
 <?php
-function check ($email, $username, $pwd){
+function check ($email, $username, $pwd, $usernameUsed, $emailUsed){
     
   if($email === '' || strpos($email, '@') === false || strpos($email, '.') === false || $emailUsed === true){
     $errors[] = 'Bitte geben Sie eine gültige E-mail an';
   }
-  if($username === '' || $username > 40 ){
-    $errors[] = 'Bitte geben Sie einen Usernamen ein';
+  if($username === '' || $username > 40 || $usernameUsed === true){
+    $errors[] = 'Bitte geben Sie einen gültigen Usernamen ein';
   }
 
   if($pwd === ''){

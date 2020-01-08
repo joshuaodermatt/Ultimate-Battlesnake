@@ -15,7 +15,7 @@ session_start();
         <img src="../recources/logo.png" alt="snake logo" id="logo">
       </div>
       <div id="nav">
-        <p><a href="#" class="nav-items">HOME</a></p>
+        <p><a href="index.php" class="nav-items">HOME</a></p>
         <?php
         if(isset($_SESSION['UsName'])){
         ?>
@@ -30,7 +30,7 @@ session_start();
        
         if(isset($_SESSION['UsName'])){
         ?>
-        <p class="login-elements"><a href="stats.php" class="nav-items" id="profile"><?=$_SESSION['UsName']?></a><p>
+        <p class="login-elements"><a href="player.php" class="nav-items" id="profile"><?=$_SESSION['UsName']?></a><p>
         <p class="login-elements"><a href="php/logout.php" class="nav-items">logout</a></p>
         <?php
         }else{

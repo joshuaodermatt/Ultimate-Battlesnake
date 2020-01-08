@@ -10,12 +10,13 @@ var tailArray = [];
 var arrayPart = [];
 var finised = false;                                                                                                                                
 var keyCodeToMove;
+var frameR = 8;
 
 
 
 function setup() {
 	createCanvas(canvasSize, canvasSize);
-	frameRate(7);
+	frameRate(frameR);
 }
 
 function draw() {

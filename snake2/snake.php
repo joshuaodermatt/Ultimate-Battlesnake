@@ -9,16 +9,10 @@
 </head>
 <body>
 
-	<?php
-	$Bid = $_POST['battleIdentity'];
-	if($_SERVER['REQUEST_METHOD'] === 'POST'){
-		$Bid = $_POST['battleIdentity'];
-	}
-	?>
-
-	
 	<form method="POST" id="score-form" action="snake.php" >
-		<input id="score" type="hidden" name="score" value="<?=$Bid?>">
+		<input id="score" type="hidden" name="score" value="">
+		<input id="score" type="hidden" name="bid" value="<?=$_POST['battleIdentity']?>">
+		<input id="score" type="hidden" name="player" value="<?=$_POST['player']?>">
 	</form>
 
 	<?php
@@ -30,17 +24,28 @@
 		PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8',
 	]);
 	
-	
 
-
-	
 	if(isset($_POST['score'])){
 		if($_SERVER['REQUEST_METHOD'] === 'POST'){
 
 			$score = $_POST['score'];
+			$battleid =$_POST['bid'];
+			$player = $_POST['player'];
 
-			$count = $pdo->exec("UPDATE `battles` SET oponent_score = $score WHERE id = $Bid");
-			$count = $pdo->exec("UPDATE `battles` SET status = status +1 WHERE id = $Bid");
+			$count = $pdo->exec("UPDATE `battles` SET oponent_score = $score WHERE id = $battleid");
+			$count = $pdo->exec("UPDATE `battles` SET status = status +1 WHERE id = $battleid");
+
+			$stmt = $pdo->query('SELECT * FROM `user`');
+			foreach($stmt->fetchAll() as $row) {
+				if($row['username'] === $player){
+					if($score > $row['highscore']){
+						$count = $pdo->exec("UPDATE user SET highscore = $score WHERE username = '$player'");	
+					}
+				}
+			}
+
+			$count = $pdo->exec("UPDATE user SET latest_score = $score WHERE username = '$player'");
+			$count = $pdo->exec("UPDATE user SET games_played = games_played + 1 WHERE username = '$player'");
 
 			header("Location:../battles.php");
 			

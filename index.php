@@ -30,7 +30,7 @@ session_start();
        
         if(isset($_SESSION['UsName'])){
         ?>
-        <p class="login-elements"><a href="stats.php" class="nav-items" id="profile"><?=$_SESSION['UsName']?></a><p>
+        <p class="login-elements"><a href="player.php" class="nav-items" id="profile"><?=$_SESSION['UsName']?></a><p>
         <p class="login-elements"><a href="php/logout.php" class="nav-items">logout</a></p>
         <?php
         }else{

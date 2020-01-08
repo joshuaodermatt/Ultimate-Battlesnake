@@ -7,7 +7,7 @@ $pdo = new PDO('mysql:host=localhost;dbname=snake_v2', $user, $password, [
     PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8',
 ]);
 
-$errors_complet = check($email, $username, $pwd);
+$errors_complet = check($email, $username, $pwd, $usernameUsed, $emailUsed);
 
 if($errors_complet [0] === ''){
     $stmt = $pdo->prepare("INSERT INTO `user` (username, email, pwd) VALUES(:username, :email, :pwd) ");
