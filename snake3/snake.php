@@ -11,8 +11,6 @@
 
 	<form method="POST" id="score-form" action="snake.php" >
 		<input id="score" type="hidden" name="score" value="">
-		<input id="score" type="hidden" name="bid" value="<?=$_POST['battleIdentity']?>">
-		<input id="score" type="hidden" name="player" value="<?=$_POST['player']?>">
 	</form>
 
 	<?php
@@ -29,11 +27,9 @@
 		if($_SERVER['REQUEST_METHOD'] === 'POST'){
 
 			$score = $_POST['score'];
-			$battleid =$_POST['bid'];
-			$player = $_POST['player'];
+			$player = $_SESSION['UsName'];
 
-			$count = $pdo->exec("UPDATE `battles` SET oponent_score = $score WHERE id = $battleid");
-			$count = $pdo->exec("UPDATE `battles` SET status = status +1 WHERE id = $battleid");
+
 
 			$stmt = $pdo->query('SELECT * FROM `user`');
 			foreach($stmt->fetchAll() as $row) {
@@ -47,7 +43,7 @@
 			$count = $pdo->exec("UPDATE user SET latest_score = $score WHERE username = '$player'");
 			$count = $pdo->exec("UPDATE user SET games_played = games_played + 1 WHERE username = '$player'");
 
-			header("Location:../battles.php");
+			header("Location:../ranked.php");
 			
 		}
 

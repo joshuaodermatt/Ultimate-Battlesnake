@@ -19,7 +19,9 @@ if($errors_complet [0] === ''){
             $idForSession = $row['id'];
         }
     }
-    
+
+
+    $count = $pdo->exec("INSERT INTO `ranking` (username) VALUES ('$username')");
     session_start();
     $_SESSION['UsName'] = $username;
     $_SESSION['email'] = $email;

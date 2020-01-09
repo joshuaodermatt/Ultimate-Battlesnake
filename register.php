@@ -55,6 +55,7 @@
 
 <?php
 function check ($email, $username, $pwd, $usernameUsed, $emailUsed){
+
     
   if($email === '' || strpos($email, '@') === false || strpos($email, '.') === false || $emailUsed === true){
     $errors[] = 'Bitte geben Sie eine gültige E-mail an';

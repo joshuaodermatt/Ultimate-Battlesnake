@@ -19,7 +19,7 @@ session_start();
         <?php
         if(isset($_SESSION['UsName'])){
         ?>
-          <p><a href="#" class="nav-items">RANKED</a></p>
+          <p><a href="ranked.php" class="nav-items">RANKED</a></p>
           <p><a href="battles.php" class="nav-items" >BATTLES</a></p>
         <?php
         }
@@ -43,14 +43,11 @@ session_start();
     </header>
 
     <div id="content">
-        <form method="POST" action="ranked.php">
-            <input type="hidden" name="currentUser" value="<?=$_SESSION['UsName']?>">
+        <form method="POST" action="snake3/snake.php">
             <button type="submitt" id="play">play!</button>
         </form>
         <?php
-        if(isset($_POST[$currentUser])){
-          require
-        }
+
         ?>
     </div>
 

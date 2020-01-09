@@ -75,9 +75,15 @@ session_start();
           $losses++;
          
         }
-        if($x['status'] === '2' && $x['player_score'] === $x['oponent_score']){
+        if($x['status'] === '2' && $x['oponent'] === $_SESSION['UsName'] && $x['player_score'] < $x['oponent_score']){
           $draws++;
+         
         }
+        if($x['status'] === '2' && $x['player'] === $_SESSION['UsName'] && $x['player_score'] === $x['oponent_score']){
+          $draws++;
+         
+        }
+
     }
 
     $count = $pdo->exec("UPDATE `user` SET winns = $winns WHERE username = '$username'");
