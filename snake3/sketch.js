@@ -13,13 +13,13 @@ var keyCodeToMove;
 var frameR = 8;
 
 
+
 function setup() {
 	createCanvas(canvasSize, canvasSize);
 	frameRate(frameR);
 }
 
 function draw() {
-	print(frameRate);
 	background(107, 168, 169);
 	grid();
 	fill(255,0,0);
@@ -58,6 +58,7 @@ function draw() {
 	fill(29, 77, 79);
 	rect(xmovement, ymovement, sz, sz);
 
+	print("bsdbf");
 
 }
 

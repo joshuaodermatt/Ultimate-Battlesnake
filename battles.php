@@ -19,7 +19,7 @@ session_start();
         <?php
         if(isset($_SESSION['UsName'])){
         ?>
-          <p><a href="#" class="nav-items">RANKED</a></p>
+          <p><a href="ranked.php" class="nav-items">RANKED</a></p>
           <p><a href="battles.php" class="nav-items" >BATTLES</a></p>
         <?php
         }
@@ -56,6 +56,11 @@ session_start();
         <div class="line"></div>
         <?php
           require "php/listBattles.php";
+        ?>
+        <p class="title">Historie</p>
+        <div class="line"></div>
+        <?php
+          require "php/listHistorie.php";
         ?>
 
     </div>

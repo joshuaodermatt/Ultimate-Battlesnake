@@ -26,7 +26,7 @@ foreach($stmt->fetchAll() as $x) {
 }
 
 ?>
-<form id="infos" method="POST" action="../p5Tests/snake.php">
+<form id="infos" method="POST" action="../snake1/snake.php">
     <input type="hidden" name="player" value="<?=$player?>">
     <input type="hidden" name="battleId" value="<?=$battleId?>">
 </form>

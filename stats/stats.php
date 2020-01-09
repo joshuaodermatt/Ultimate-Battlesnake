@@ -19,7 +19,7 @@ session_start();
         <?php
         if(isset($_SESSION['UsName'])){
         ?>
-          <p><a href="#" class="nav-items">RANKED</a></p>
+          <p><a href="../ranked.php" class="nav-items">RANKED</a></p>
           <p><a href="../battles.php" class="nav-items" >BATTLES</a></p>
         <?php
         }
@@ -47,6 +47,7 @@ session_start();
     $user = 'snake';
     $password = 's1n2a3k4e5';
 
+    $draws = 0;
     $winns = 0;
     $losses = 0;
     $username = $_SESSION['UsName'];
@@ -74,17 +75,25 @@ session_start();
           $losses++;
          
         }
+        if($x['status'] === '2' && $x['player_score'] === $x['oponent_score']){
+          $draws++;
+        }
     }
 
     $count = $pdo->exec("UPDATE `user` SET winns = $winns WHERE username = '$username'");
     $count = $pdo->exec("UPDATE `user` SET losses = $losses WHERE username = '$username'");
+    $count = $pdo->exec("UPDATE `user` SET draw = $draws WHERE username = '$username'");
 
     $games_played;
     $highscore;
     $latest_score;
 
+    $test;
+
     $stmt = $pdo->query("SELECT * FROM `user` WHERE username = '$username'");
     foreach($stmt->fetchAll() as $row) {
+      $test = $row;
+      $draws = $row['draw'];
       $games_played = $row['games_played'];
       $winns = $row['winns'];
       $losses = $row['losses'];
@@ -92,16 +101,15 @@ session_start();
       $latest_score = $row['latest_score'];
     }
 
+    
+
     ?>
     <input type="hidden" id="winns" value="<?=$winns?>">
     <input type="hidden" id="losses" value="<?=$losses?>">
+    <input type="hidden" id="draw" value="<?=$draws?>">
 
 
     <div id="content">
-      <div id="snd-header">
-        <a href="../player.php" class="snd-items">profile</a> 
-        <a href="player/battle_historie.php" class="snd-items">historie</a>
-      </div> 
       <div id="profile">
         <h2 id="name"><?=$_SESSION['UsName']?><h2>
       </div>
@@ -126,15 +134,26 @@ session_start();
     </div>
     <div id="graph-infos">
       <div class="graph-infos-text-container">
-        <div id="red">
+        <div id="redd">
+          <p><?=$losses?></p>
         </div>
         <p class="graph-infos-text">losses</p>
       </div>
       <div class="graph-infos-text-container">
-        <div id="blue">
+        <div id="bluee">
+          <p><?=$winns?></p>
         </div>
         <p class="graph-infos-text">winns</p>
       </div>
+      <div class="graph-infos-text-container">
+        <div id="blackk">
+          <p><?=$draws?></p>
+        </div>
+        <p class="graph-infos-text">draws</p>
+      </div>
     </div>
+
+
+    
   </body>
 </html>

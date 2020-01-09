@@ -90,12 +90,12 @@ body{
 .player-container{
     margin-top: 30px;
     height: 35px;
-    border: 1px solid black;
+    border: 1px solid #32afa9;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     flex-wrap: nowrap;
-    background-color: #4d727e;
+    background-color: #32afa9;
 }
 
 .player-items{
@@ -121,15 +121,37 @@ body{
 .player-containertwo{
     margin-top: 30px;
     height: 35px;
-    border: 1px solid black;
+    border: 1px solid #52de97;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     flex-wrap: nowrap;
-    background-color: #0f4c75;
+    background-color: #52de97;
 }
 
 
 .title{
     margin-top: 100px;
+}
+
+.player-containerwin{
+    margin-top: 30px;
+    height: 35px;
+    border: 1px solid #87cefa;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    background-color: #87cefa;
+}
+
+.player-containerlos{
+    margin-top: 30px;
+    height: 35px;
+    border: 1px solid #f16161;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    background-color: #f16161;
 }

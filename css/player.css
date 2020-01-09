@@ -128,7 +128,7 @@ body{
 }
 
 #graph-infos{
-    width: 40%;
+    width: 35%;
     margin-left: auto;
     margin-right: auto;
     display: flex;
@@ -140,20 +140,17 @@ body{
     width: fit-content;
 }
 
-#red{
-    width: 20px;
-    height: 20px;
-    background-color: #f16161;
-    margin-top: 16px;
-    margin-bottom: 16px;
+#redd{
+    color: #f16161;
+
 }
 
-#blue{
-    margin-top: 16px;
-    margin-bottom: 16px;
-    width: 20px;
-    height: 20px;
-    background-color: #87cefa;
+#bluee{
+    color: #87cefa;
+}
+
+#blackk{
+    color: black;
 }
 
 .graph-infos-text-container{
