@@ -16,14 +16,11 @@ $foundResults;
 $stmt = $pdo->query('SELECT * FROM `user`');
 
 foreach($stmt->fetchAll() as $row) {
-    if($row['username'] === $_POST['search']){
+    if($row['username'] === $_POST['search'] && $row['username'] != $_SESSION['UsName']){
         $foundResults = $row['username'];
         $playerFound = true;
     }
 }
-
-
-
 
 
 if($playerFound === true){

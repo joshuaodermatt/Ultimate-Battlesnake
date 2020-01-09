@@ -75,7 +75,7 @@ session_start();
           $losses++;
          
         }
-        if($x['status'] === '2' && $x['oponent'] === $_SESSION['UsName'] && $x['player_score'] < $x['oponent_score']){
+        if($x['status'] === '2' && $x['oponent'] === $_SESSION['UsName'] && $x['player_score'] === $x['oponent_score']){
           $draws++;
          
         }
