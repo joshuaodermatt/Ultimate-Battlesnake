@@ -52,10 +52,7 @@ session_start();
     $losses = 0;
     $username = $_SESSION['UsName'];
 
-    $pdo = new PDO('mysql:host=localhost;dbname=snake_v2', $user, $password, [
-      PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
-      PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8',
-    ]);
+    require "../dbc.php";
 
     $stmt = $pdo->query('SELECT * FROM `battles`');
     foreach($stmt->fetchAll() as $x) {
@@ -93,6 +90,7 @@ session_start();
     $games_played;
     $highscore;
     $latest_score;
+    $rankingPoints;
 
     $test;
 
@@ -105,6 +103,10 @@ session_start();
       $losses = $row['losses'];
       $highscore = $row['highscore'];
       $latest_score = $row['latest_score'];
+    }
+    $stmt = $pdo->query("SELECT * FROM `ranking` WHERE username = '$username'");
+    foreach($stmt->fetchAll() as $row) {
+      $rankingPoints = $row['points'];
     }
 
     
@@ -132,12 +134,19 @@ session_start();
           <p class="stats-items-big"><?=$games_played?></p>
           <p class="stats-items">games played</p>
         </div>
+        <div class="stats">
+          <p class="stats-items-big"><?=$rankingPoints?></p>
+          <p class="stats-items">ranked points</p>
+        </div>
       </div>
         <script src="libraries/p5.js"></script>
         <script src="libraries/p5.dom.js"></script>
         <script src="libraries/p5.sound.js"></script>
         <script src="sketch.js"></script>
     </div>
+    <div id="battleTitle">
+        <p>battles</p>
+      </div>
     <div id="graph-infos">
       <div class="graph-infos-text-container">
         <div id="redd">

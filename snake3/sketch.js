@@ -15,13 +15,18 @@ var frameR = 8;
 
 
 function setup() {
-	createCanvas(canvasSize, canvasSize);
+	createCanvas(canvasSize, canvasSize + 100);
 	frameRate(frameR);
+	textSize(40);
 }
 
 function draw() {
 	background(107, 168, 169);
+	background(255,255,255);
+	fill(127,205,145);
+	rect(0,0, canvasSize, canvasSize);
 	grid();
+	line(canvasSize - 1, 0, canvasSize -1, canvasSize);
 	fill(255,0,0);
 	rect(appleX * sz, appleY * sz, sz, sz);
 
@@ -58,12 +63,15 @@ function draw() {
 	fill(29, 77, 79);
 	rect(xmovement, ymovement, sz, sz);
 
-	print("bsdbf");
+
+	text(parts, canvasSize / 2, canvasSize + 50);
+
+
 
 }
 
 function isSnakeOnTail(){
-    for(var i = 2; i < parts; ++i ){
+    for(var i = 1; i <= parts; ++i ){
         if(parts > 1){
             if(xmovement === tailArray[i][0] && ymovement === tailArray[i][1]){
             finished = true;

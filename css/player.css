@@ -160,5 +160,12 @@ body{
     width: 20%;
 }
 
+#battleTitle{
+    font-size: 30px;
+    margin-right: auto;
+    margin-left: auto;
+    width: fit-content;
+}
+
 
 

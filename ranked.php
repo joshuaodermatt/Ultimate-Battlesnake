@@ -6,13 +6,13 @@ session_start();
     <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../css/raked.css">
+    <link rel="stylesheet" href="css/raked.css">
     <title>UB</title>
   </head>
   <body>
     <header class="header">
       <div id="logo-container"> 
-        <img src="../recources/logo.png" alt="snake logo" id="logo">
+        <img src="recources/logo.png" alt="snake logo" id="logo">
       </div>
       <div id="nav">
         <p><a href="#" class="nav-items">HOME</a></p>
@@ -47,8 +47,26 @@ session_start();
             <button type="submitt" id="play">play!</button>
         </form>
         <?php
+        require "dbc.php";
+
+        $stmt = $pdo->query('SELECT * FROM `ranking` ORDER BY points DESC limit 100');
+        $counter2 = 1;
+        foreach($stmt->fetchAll() as $x) {
+          
+        ?>
+        <div class="ranked-list">
+          <p class="place"><?=$counter2?><p>
+          <div class="player-container">
+            <p class="player-items"><?=$x['username']?></p> 
+            <p class="player-items"><?=$x['points']?></p> 
+          </div>
+        </div>
+        <?php
+        $counter2 ++;
+        }
 
         ?>
+        
     </div>
 
   </body>

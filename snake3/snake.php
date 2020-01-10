@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -8,26 +9,48 @@
 	<link rel="stylesheet" href="snake.css">
 </head>
 <body>
-
-	<form method="POST" id="score-form" action="snake.php" >
-		<input id="score" type="hidden" name="score" value="">
-	</form>
-
 	<?php
-	$user = 'snake';
-	$password = 's1n2a3k4e5';
-
-	$pdo = new PDO('mysql:host=localhost;dbname=snake_v2', $user, $password, [
-		PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
-		PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8',
-	]);
+	session_start();
+	$player = $_SESSION['UsName'];
 	
+	require "../dbc.php";
+
+	$randomScore = 0;
+
+	$stmt = $pdo->query("SELECT * FROM `ranking` WHERE NOT username = '$player' ORDER BY RAND ( ) LIMIT 1");
+	foreach($stmt->fetchAll() as $row) {
+		$randomScore = $row['latest_score_ranked'];
+	}
+	if($randomScore === NULL || $randomScore < 10){
+		$randomScore = 10;
+	}
+
+	$space = ' ';
+	
+	?>
+		<h2 id="randomscore">To reach<?= $space,$randomScore?></h2>
+
+		<form method="POST" id="score-form" action="snake.php" >
+			<input id="score" type="hidden" name="score" value="">
+		</form>
+	<?php
+
+
 
 	if(isset($_POST['score'])){
 		if($_SERVER['REQUEST_METHOD'] === 'POST'){
 
 			$score = $_POST['score'];
-			$player = $_SESSION['UsName'];
+
+			
+			
+			
+
+			if($score > $randomScore || $score === $randomScore){
+				$count = $pdo->exec("UPDATE ranking SET points = points + 30 WHERE username = '$player'");
+			}else{
+				$count = $pdo->exec("UPDATE ranking SET points = points - 20 WHERE username = '$player'");
+			}
 
 
 
@@ -41,6 +64,7 @@
 			}
 
 			$count = $pdo->exec("UPDATE user SET latest_score = $score WHERE username = '$player'");
+			$count = $pdo->exec("UPDATE ranking SET latest_score_ranked = $score WHERE username = '$player'");
 			$count = $pdo->exec("UPDATE user SET games_played = games_played + 1 WHERE username = '$player'");
 
 			header("Location:../ranked.php");

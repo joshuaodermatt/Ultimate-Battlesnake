@@ -6,13 +6,13 @@ session_start();
     <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../css/index.css">
+    <link rel="stylesheet" href="css/index.css">
     <title>UB</title>
   </head>
   <body>
     <header class="header">
       <div id="logo-container"> 
-        <img src="../recources/logo.png" alt="snake logo" id="logo">
+        <img src="recources/logo.png" alt="snake logo" id="logo">
       </div>
       <div id="nav">
         <p><a href="inde.php" class="nav-items">HOME</a></p>
@@ -42,6 +42,12 @@ session_start();
       </div>
     </header>
 
+      <script src="libraries/p5.js"></script>
+			<script src="libraries/p5.dom.js"></script>
+			<script src="libraries/p5.sound.js"></script>
+			<script src="animation.js"></script>
+
+      
   </body>
 </html>
 

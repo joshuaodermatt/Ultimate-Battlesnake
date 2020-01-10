@@ -1,6 +1,19 @@
 #defaultCanvas0{
     display: block;
-    margin-top: 200px;
+    
     margin-left: auto;
     margin-right: auto;
+}
+
+#randomscore{
+    font-size: 40px;
+    margin-top: 200px;
+    width: fit-content;
+    margin-bottom: 40px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+html{
+    font-family: 'Roboto', sans-serif;
 }
