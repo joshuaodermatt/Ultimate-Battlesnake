@@ -1,5 +1,5 @@
 <?php
-require "../dbc.php";
+require 'dbc.php';
 
 $errors_complet = check($email, $username, $pwd, $usernameUsed, $emailUsed);
 

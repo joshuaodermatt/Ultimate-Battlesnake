@@ -47,7 +47,7 @@ session_start();
             <button type="submitt" id="play">play!</button>
         </form>
         <?php
-        require "dbc.php";
+        require 'dbc.php';
 
         $stmt = $pdo->query('SELECT * FROM `ranking` ORDER BY points DESC limit 100');
         $counter2 = 1;

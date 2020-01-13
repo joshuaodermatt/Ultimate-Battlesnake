@@ -2,7 +2,7 @@
             $user = 'snake';
             $password = 's1n2a3k4e5';
             
-            require "../dbc.php";
+            require 'dbc.php';
 
             $stmt = $pdo->prepare('SELECT * FROM `battles` WHERE oponent = :usname');
             $stmt->execute([':usname' => $_SESSION['UsName']]);

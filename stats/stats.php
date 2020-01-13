@@ -52,7 +52,7 @@ session_start();
     $losses = 0;
     $username = $_SESSION['UsName'];
 
-    require "../dbc.php";
+    require ("../dbc.php");
 
     $stmt = $pdo->query('SELECT * FROM `battles`');
     foreach($stmt->fetchAll() as $x) {

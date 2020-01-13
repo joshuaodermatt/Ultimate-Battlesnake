@@ -13,7 +13,7 @@
 	session_start();
 	$player = $_SESSION['UsName'];
 	
-	require "../dbc.php";
+	require '../dbc.php';
 
 	$randomScore = 0;
 

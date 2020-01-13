@@ -2,7 +2,7 @@
 session_start();
 
 
-require "../dbc.php";
+require '../dbc.php';
 
 $stmt = $pdo->prepare("INSERT INTO `battles` (player, oponent) VALUES(:first, :last) ");
 $stmt->execute([':first' => $_SESSION['UsName'], ':last' => $_POST['addBattleUsername']]);

@@ -42,7 +42,7 @@
                 $usernameUsed = true;
               }
             }
-            require "php/register_server.php"; 
+            require 'php/register_server.php'; 
         }
         
         ?>

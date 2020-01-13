@@ -1,7 +1,7 @@
 <?php
 
 
-require "../dbc.php";
+require 'dbc.php';
 
 $playerFound = false;
 

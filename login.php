@@ -30,7 +30,7 @@
             $EOU = $_POST["emailOrUsername"];
             $pwd = $_POST["pwd"];
 
-            require "php/login_server.php"; 
+            require 'php/login_server.php'; 
         }
         ?>
       </div>

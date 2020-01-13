@@ -23,7 +23,7 @@
 	<?php
 
 	
-	require "../dbc.php";
+	require '../dbc.php';
 	
 
 	if(isset($_POST['score'])){
