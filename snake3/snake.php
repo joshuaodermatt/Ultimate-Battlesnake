@@ -35,41 +35,48 @@
 		</form>
 	<?php
 
-
+	var_dump($_SESSION['isGamePlayed']);
 
 	if(isset($_POST['score'])){
-		if($_SERVER['REQUEST_METHOD'] === 'POST'){
+        if($_SESSION['isGamePlayed'] === 0){
+            if($_SERVER['REQUEST_METHOD'] === 'POST'){
 
-			$score = $_POST['score'];
+                $score = $_POST['score'];
 
-			
-			
-			
+                if($score > $randomScore || $score === $randomScore){
+                    
+                        $_SESSION['isGamePlayed'] = 1;
+                        $count = $pdo->exec("UPDATE ranking SET points = points + 30 WHERE username = '$player'");
+                    
+                    
+                }else{
+                    
+                        $_SESSION['isGamePlayed'] = 1;
+                        $count = $pdo->exec("UPDATE ranking SET points = points - 20 WHERE username = '$player'");
+                    
+                }
 
-			if($score > $randomScore || $score === $randomScore){
-				$count = $pdo->exec("UPDATE ranking SET points = points + 30 WHERE username = '$player'");
-			}else{
-				$count = $pdo->exec("UPDATE ranking SET points = points - 20 WHERE username = '$player'");
-			}
 
 
+                $stmt = $pdo->query('SELECT * FROM `user`');
+                foreach($stmt->fetchAll() as $row) {
+                    if($row['username'] === $player){
+                        if($score > $row['highscore']){
+                            $count = $pdo->exec("UPDATE user SET highscore = $score WHERE username = '$player'");
+                        }
+                    }
+                }
 
-			$stmt = $pdo->query('SELECT * FROM `user`');
-			foreach($stmt->fetchAll() as $row) {
-				if($row['username'] === $player){
-					if($score > $row['highscore']){
-						$count = $pdo->exec("UPDATE user SET highscore = $score WHERE username = '$player'");	
-					}
-				}
-			}
+                $count = $pdo->exec("UPDATE user SET latest_score = $score WHERE username = '$player'");
+                $count = $pdo->exec("UPDATE ranking SET latest_score_ranked = $score WHERE username = '$player'");
+                $count = $pdo->exec("UPDATE user SET games_played = games_played + 1 WHERE username = '$player'");
 
-			$count = $pdo->exec("UPDATE user SET latest_score = $score WHERE username = '$player'");
-			$count = $pdo->exec("UPDATE ranking SET latest_score_ranked = $score WHERE username = '$player'");
-			$count = $pdo->exec("UPDATE user SET games_played = games_played + 1 WHERE username = '$player'");
-
-			header("Location:../ranked.php");
-			
-		}
+                header("Location:../ranked.php");
+                
+            }
+        }else{
+            header("Location:../ranked.php");
+        }
 
 	}else{
 	?>

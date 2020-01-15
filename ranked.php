@@ -15,7 +15,7 @@ session_start();
         <img src="recources/logo.png" alt="snake logo" id="logo">
       </div>
       <div id="nav">
-        <p><a href="#" class="nav-items">HOME</a></p>
+        <p><a href="index.php" class="nav-items">HOME</a></p>
         <?php
         if(isset($_SESSION['UsName'])){
         ?>
@@ -47,6 +47,9 @@ session_start();
             <button type="submitt" id="play">play!</button>
         </form>
         <?php
+            
+        $_SESSION['isGamePlayed'] = 0;
+        
         require 'dbc.php';
 
         $stmt = $pdo->query('SELECT * FROM `ranking` ORDER BY points DESC limit 100');

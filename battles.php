@@ -48,6 +48,7 @@ session_start();
             <button type="submit" id="search-button">GO!</button>
         </form>
         <?php
+        $_SESSION['gameDone'] = 0;
         if($_SERVER['REQUEST_METHOD'] === 'POST'){
             require "php/search.php";
         }
